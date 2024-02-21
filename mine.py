@@ -27,9 +27,11 @@ def face_capture():
             y_2 = y + height
             cv2.rectangle(frame, (x, y), (x_2, y_2), (255, 255, 0), 2)
             cv2.circle(frame, (320,240),  2, (255, 255, 0), 2)
-            cv2.line(frame, (320,240), (int((x + x_2) / 2), int((y + y_2) / 2)), (255, 255, 0), 2)
-            
-            
+            canter_x = int((x + x_2) / 2)
+            canter_y = int((y + y_2) / 2)
+            cv2.line(frame, (320,240), (canter_x, canter_y), (255, 255, 0), 2)
+            cv2.line(frame,  ((canter_x), 240), (320,240), (255, 255, 0), 2)
+            cv2.line(frame,  (canter_x, 240), (canter_x,canter_y), (255, 255, 0), 2)
         cv2.imshow('Faces', frame)
         if cv2.waitKey(1) == ord('q'):
             break
