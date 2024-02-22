@@ -1,5 +1,5 @@
 import cv2
-
+import math
 
 
 def face_capture():
@@ -29,9 +29,19 @@ def face_capture():
             cv2.circle(frame, (320,240),  2, (255, 255, 0), 2)
             canter_x = int((x + x_2) / 2)
             canter_y = int((y + y_2) / 2)
+
             cv2.line(frame, (320,240), (canter_x, canter_y), (255, 255, 0), 2)
             cv2.line(frame,  ((canter_x), 240), (320,240), (255, 255, 0), 2)
             cv2.line(frame,  (canter_x, 240), (canter_x,canter_y), (255, 255, 0), 2)
+
+            hypotenuse_length = math.sqrt((320 - canter_x)**2 + (240 - canter_y)**2)
+            leg_length = math.sqrt((240-canter_y)**2)
+            try:
+                triangle_sin = leg_length/hypotenuse_length
+            except ZeroDivisionError:
+                triangle_sin = 0
+            triangle_corner = math.degrees(math.asin(triangle_sin))
+            print(triangle_corner)
         cv2.imshow('Faces', frame)
         if cv2.waitKey(1) == ord('q'):
             break
