@@ -31,8 +31,7 @@ def face_capture():
             canter_y = int((y + y_2) / 2)
 
             cv2.line(frame, (320,240), (canter_x, canter_y), (255, 255, 0), 2)
-            cv2.line(frame,  ((canter_x), 240), (320,240), (255, 255, 0), 2)
-            cv2.line(frame,  (canter_x, 240), (canter_x,canter_y), (255, 255, 0), 2)
+
 
             hypotenuse_length = math.sqrt((320 - canter_x)**2 + (240 - canter_y)**2)
             leg_length = math.sqrt((240-canter_y)**2)
