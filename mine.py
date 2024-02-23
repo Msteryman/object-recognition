@@ -56,3 +56,6 @@ def main():
     
 if __name__ == '__main__':
     main()
+
+def coordinat_x_y():
+    pass
